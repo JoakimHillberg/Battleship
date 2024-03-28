@@ -1,12 +1,23 @@
 import javax.swing.*;
+import java.awt.*;
 
 public class Panel extends JPanel {
     // Attributes
-    Frame myFrame;
+    private int rows;
+    private int columns;
+    private Frame myFrame;
 
     // Constructor
-    public Panel(Frame myFrame) {
+    public Panel(int rows, int columns, Frame myFrame) {
+        this.rows = rows;
+        this.columns = columns;
         this.myFrame = myFrame;
-        this.setVisible(true);
+        this.setLayout(new GridLayout(rows, columns));
+
+        for (int i = 0; i < rows * columns; i++) {
+            this.add(new Button(Integer.toString(i)));
+        }
     }
+
+    // Methods
 }
